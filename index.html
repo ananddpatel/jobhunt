@@ -24,11 +24,12 @@
 
 		thead {
 			background-color: #5cb85c;
-			color: white
+			color: white;
 		}
 
 		table, thead, tbody, tr, th {
 			border: 1px 1px 1px 1px solid red;
+			text-align: center;
 		}
 
 		.input-group {
@@ -98,6 +99,7 @@
 		<table v-if="jobListing" class="text-center table table-hover table-bordered table-condensed">
 			<thead>
 				<tr>
+					<th>#</th>
 					<th>Title</th>
 					<th>Company</th>
 					<th>Applied</th>
@@ -109,6 +111,7 @@
 			</thead>
 			<tbody>
 				<tr v-for="jobb, key in jobListing">
+					<td>{{num(key)}}</td>
 					<td>
 						<a :href="jobb.url" target="_blank">{{jobb.title}}</a>
 						<br>

@@ -20,6 +20,9 @@ var app = new Vue({
 		},
 		editJob(data) {
 			Event.fire('edit', data)
+		},
+		num(key) {
+			return Object.keys(this.jobListing).indexOf(key) + 1;
 		}
 	},
 	created() {
