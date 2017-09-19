@@ -6,7 +6,7 @@ var Job = function() {
 		dateApplied: new Date().toLocaleString('en-US', {
 			day: 'numeric',
 			month: 'long',
-			year: 'numeric',
+			year: 'numeric'
 		}),
 		url: '',
 		location: 'Toronto',

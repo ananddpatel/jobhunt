@@ -13,7 +13,10 @@ var app = new Vue({
 	},
 	methods: {
 		getAllJobs() {
-			jobsTable.on('value', snapshot => app.jobListing = snapshot.val())
+			jobsTable.on('value', snapshot => {
+				jobs = snapshot.val()
+				app.jobListing = snapshot.val()
+			})
 		},
 		addJob() {
 			Event.fire('add')
