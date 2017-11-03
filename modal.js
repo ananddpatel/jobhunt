@@ -6,7 +6,7 @@ Vue.component('modal', {
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">{{title}}</h4>
+		        <h4 class="modal-title"><strong>{{title}}</strong></h4>
 		      </div>
 		      <div class="modal-body">
 
@@ -18,6 +18,8 @@ Vue.component('modal', {
 				<div class="input-group">
 				  <span class="input-group-addon">Title</span>
 				  <input type="text" class="form-control" v-model="job.title">
+				  <button style="margin-right: 5px;" v-for="button in titleButtons" class="btn btn-primary" :value="button" @click="addToTitle(button)">{{button}}</button>
+				  <button class="btn btn-danger" @click="clearJobTitle">X</button>
 				</div>
 
 				<div class="input-group">
@@ -66,7 +68,8 @@ Vue.component('modal', {
 	data() {
 		return {
 			jobId: '',
-			job: new Job()
+			job: new Job(),
+			titleButtons: ['PHP', 'Software', 'Developer'],
 		}
 	},
 	methods: {
@@ -79,6 +82,12 @@ Vue.component('modal', {
 		},
 		del() {
 			db.ref('/jobs/'+this.jobId).remove()
+		},
+		addToTitle(btnVal) {
+			this.job.title += btnVal + ' '
+		},
+		clearJobTitle(str) {
+			this.job.title = ''
 		}
 	},
 	created() {
