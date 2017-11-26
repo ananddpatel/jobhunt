@@ -69,7 +69,7 @@ Vue.component('modal', {
 		return {
 			jobId: '',
 			job: new Job(),
-			titleButtons: ['PHP', 'Software', 'Developer'],
+			titleButtons: ['PHP', 'Software', 'Web-Developer', 'Developer', 'Junior', 'Senior', 'Backend', 'Frontend', 'FullStack'],
 		}
 	},
 	methods: {
